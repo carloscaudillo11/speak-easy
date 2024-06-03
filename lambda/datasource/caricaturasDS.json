@@ -1,0 +1,34 @@
+{
+  "imageListData": {
+    "type": "object",
+    "objectId": "paginatedListSample",
+    "title": "Caricaturas",
+    "listItems": [
+      {
+        "primaryText": "Bob-Esponja",
+        "secondaryText": "Bod Esponja",
+        "imageSource": "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/4:3/w_1960,h_1470,c_limit/bob_esponja_9564.png"
+      },
+      {
+        "primaryText": "Cha-vo",
+        "secondaryText": "Chavo",
+        "imageSource": "https://m.media-amazon.com/images/S/pv-target-images/349d81d6cb0935c156c765e61c62aa0e9afc86ca14c5dbd3baecb30ebdffe3f3.jpg"
+      },
+      {
+        "primaryText": "Pe-ppa",
+        "secondaryText": "Peppa",
+        "imageSource": "https://es.web.img2.acsta.net/pictures/14/02/27/12/49/374639.jpg"
+      },
+      {
+        "primaryText": "Go-ku",
+        "secondaryText": "Goku",
+        "imageSource": "https://media.gq.com.mx/photos/5eb5954e51cd5e1b340e8b67/1:1/w_1096,h_1096,c_limit/dia-de-goku.png"
+      },
+      {
+        "primaryText": "Lu-cas",
+        "secondaryText": "Lucas",
+        "imageSource": "https://mvsnoticias.com/u/fotografias/m/2024/2/2/f960x540-596630_670705_5050.jpg"
+      }
+    ]
+  }
+}

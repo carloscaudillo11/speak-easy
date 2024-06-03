@@ -1,0 +1,60 @@
+{
+    "imageListData": {
+        "type": "object",
+        "objectId": "imageListSample",
+        "title": "Selecciona una categoría",
+        "listItems": [
+            {
+                "primaryText": "Animales",
+                "imageSource": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                "primaryAction": [
+                    {
+                        "type": "SendEvent",
+                        "arguments": "animales"
+                    }
+                ]
+            },
+            {
+                "primaryText": "Cosas",
+                "imageSource": "https://images.pexels.com/photos/4112601/pexels-photo-4112601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                "primaryAction": [
+                    {
+                        "type": "SendEvent",
+                        "arguments": "cosas"
+                    }
+                ]
+            },
+            {
+                "primaryText": "Familia",
+                "imageSource": "https://images.pexels.com/photos/1128316/pexels-photo-1128316.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                "primaryAction": [
+                    {
+                        "type": "SendEvent",
+                        "arguments": "familia"
+                    }
+                ]
+            },
+            {
+                "primaryText": "Caricaturas",
+                "imageSource": "https://media.revistagq.com/photos/5ca5f6a77a3aec0df5496c59/4:3/w_1960,h_1470,c_limit/bob_esponja_9564.png",
+                "primaryAction": [
+                    {
+                        "type": "SendEvent",
+                        "arguments": "caricaturas"
+                    }
+                ]
+            },
+            {
+                "primaryText": "Comida",
+                "imageSource": "https://images.pexels.com/photos/4518640/pexels-photo-4518640.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "primaryAction": [
+                    {
+                        "type": "SendEvent",
+                        "arguments": "comida"
+                    }
+                ]
+            }
+        ],
+        "hintText": "Di, \"Alexa, selecciona Animales\""
+    }
+}

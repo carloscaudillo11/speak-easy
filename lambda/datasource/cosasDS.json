@@ -1,0 +1,34 @@
+{
+    "imageListData": {
+        "type": "object",
+        "objectId": "paginatedListSample",
+        "title": "Cosas cotidianas",
+        "listItems": [
+            {
+                "primaryText": "Ca-rro",
+                "secondaryText": "Carro",
+                "imageSource": "https://images.pexels.com/photos/166054/pexels-photo-166054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                "primaryText": "Si-lla",
+                "secondaryText": "Silla",
+                "imageSource": "https://images.pexels.com/photos/116910/pexels-photo-116910.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                "primaryText": "Len-tes",
+                "secondaryText": "Lentes",
+                "imageSource": "https://images.pexels.com/photos/39716/pexels-photo-39716.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                "primaryText": "Za-pa-tos",
+                "secondaryText": "Zapatos",
+                "imageSource": "https://images.pexels.com/photos/1598508/pexels-photo-1598508.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            },
+            {
+                "primaryText": "Ca-sa",
+                "secondaryText": "Casa",
+                "imageSource": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+        ]
+    }
+}

@@ -1,0 +1,109 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "category",
+              "type": "CATEGORY"
+            }
+          ],
+          "name": "SelectCategoryIntent",
+          "samples": [
+            "selecciona {category}",
+            "elijo {category}",
+            "entra a {category}",
+            "muestrame {category}",
+            "elije {category}",
+            "{category}"
+          ]
+        },
+        {
+          "slots": [],
+          "name": "InitRepeatIntent",
+          "samples": [
+            "sí",
+            "vamos",
+            "estoy listo",
+            "continuemos",
+            "claro"
+          ]
+        },
+        {
+          "slots": [
+            {
+              "name": "word",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "name": "RepeatIntent",
+          "samples": [
+            "es un {word}",
+            "es una {word}",
+            "una {word}",
+            "un {word}",
+            "es {word}",
+            "el {word}",
+            "la {word}",
+            "unos {word}",
+            "los {word}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "animales"
+              }
+            },
+            {
+              "name": {
+                "value": "cosas"
+              }
+            },
+            {
+              "name": {
+                "value": "familia"
+              }
+            },
+            {
+              "name": {
+                "value": "comida"
+              }
+            },
+            {
+              "name": {
+                "value": "caricaturas"
+              }
+            }
+          ],
+          "name": "CATEGORY"
+        }
+      ],
+      "invocationName": "open speak easy"
+    }
+  }
+}

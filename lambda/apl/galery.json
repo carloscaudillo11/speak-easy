@@ -1,0 +1,40 @@
+{
+    "type": "APL",
+    "version": "2024.1",
+    "theme": "dark",
+    "import": [
+      {
+        "name": "alexa-layouts",
+        "version": "1.7.0"
+      }
+    ],
+    "resources": [],
+    "styles": {},
+    "layouts": {},
+    "mainTemplate": {
+      "parameters": ["payload"],
+      "items": [
+        {
+          "type": "Container",
+          "width": "100%",
+          "height": "100%",
+          "items": [
+            {
+              "type": "AlexaPaginatedList",
+              "listId": "mypaginate",
+              "headerTitle": "${payload.imageListData.title}",
+              "headerBackButton": true,
+              "headerAttributionImage": "${payload.imageListData.logoUrl}",
+              "backgroundBlur": false,
+              "backgroundColorOverlay": true,
+              "backgroundScale": "fill",
+              "backgroundAlign": "center",
+              "theme": "dark",
+              "listItems": "${payload.imageListData.listItems}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
