@@ -1,16 +1,16 @@
-# Speak Easy Alexa Skill
+# 🗣️ Speak Easy Alexa Skill
 
-## Descripción
+## 📄 Descripción
 
 Speak Easy es una skill de Alexa diseñada para ayudar a los usuarios a practicar palabras de diferentes categorías a través de la repetición y validación de palabras. Utiliza la capacidad de presentación de Alexa para mostrar imágenes y textos, y valida las respuestas del usuario con una función Lambda de AWS.
 
-## Requisitos
+## 🛠️ Requisitos
 
 - Node.js
 - AWS CLI configurado con permisos para Lambda y S3
 - Archivos de configuración `slider.json`, `sliderDS.json`, `galery.json` y las fuentes de datos correspondientes en el directorio `datasource`
 
-## Instalación
+## 🚀 Instalación
 
 1. Clona el repositorio:
 
@@ -32,20 +32,20 @@ Speak Easy es una skill de Alexa diseñada para ayudar a los usuarios a practica
    export S3_PERSISTENCE_BUCKET=tu_bucket
    ```
 
-## Estructura del Proyecto
+## 📂 Estructura del Proyecto
 
 - `index.js`: Contiene el código principal de la skill de Alexa.
 - `utils.js`: Contiene funciones auxiliares como `getS3PreSignedUrl`.
 - `apl/`: Contiene los archivos de presentación APL.
 - `datasource/`: Contiene las fuentes de datos para las diferentes categorías.
 
-## Descripción del Código
+## 💻 Descripción del Código
 
 ### `index.js`
 
 Este archivo contiene los handlers principales para manejar diferentes tipos de solicitudes y eventos de usuario en la skill de Alexa.
 
-#### Handlers
+#### 🛠️ Handlers
 
 - **LaunchRequestHandler**: Maneja la solicitud de lanzamiento de la skill.
 - **RebootHandler**: Reinicia la sesión si el atributo `finish` es verdadero.
@@ -93,7 +93,7 @@ module.exports.getS3PreSignedUrl = function getS3PreSignedUrl(s3ObjectKey) {
 };
 ```
 
-## Uso
+## 📚 Uso
 
 Inicia la skill diciendo:
 
