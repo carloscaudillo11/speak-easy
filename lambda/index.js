@@ -5,6 +5,7 @@ const galery = require("./apl/galery.json");
 const fs = require("fs");
 const path = require("path");
 const AWS = require("aws-sdk");
+const difflib = require('difflib');
 
 /**
  * Crea una carga útil de directiva para renderizar documentos APL.
@@ -52,7 +53,9 @@ const validateWord = async (word, userResponse) => {
 };
 
 /**
- * Maneja la solicitud de lanzamiento de la skill.
+ * Este manejador se activa cuando el usuario lanza la skill. Verifica si el tipo de solicitud es "LaunchRequest" y responde con un 
+ * mensaje de bienvenida que invita al usuario a seleccionar una categoría. Si el dispositivo del usuario es compatible con APL 
+ * (Alexa Presentation Language), se envía una directiva APL que muestra una interfaz de deslizamiento con las categorías disponibles.
  */
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -83,7 +86,9 @@ const LaunchRequestHandler = {
 };
 
 /**
- * Maneja el evento de reinicio, que se activa cuando se reinicia la sesión.
+ * Este manejador se activa cuando la sesión del usuario ha finalizado previamente. Verifica si el atributo de sesión finish está establecido 
+ * en true. Si es así, restablece este atributo a false y reinicia la skill llamando al LaunchRequestHandler. 
+ * Esto permite que la skill vuelva a su estado inicial de bienvenida.
  */
 const RebootHandler = {
   canHandle(handlerInput) {
@@ -101,7 +106,9 @@ const RebootHandler = {
 };
 
 /**
- * Maneja el evento de "goBack" activado por el usuario.
+ * Este manejador se activa cuando el usuario interactúa con un componente APL y selecciona la opción "goBack". Verifica si el evento es un 
+ * "UserEvent" de APL y si el argumento es "goBack". Si se cumplen estas condiciones, vuelve a lanzar la skill utilizando el LaunchRequestHandler, 
+ * lo que lleva al usuario de vuelta al menú principal.
  */
 const BackEventHandler = {
   canHandle(handlerInput) {
@@ -117,7 +124,10 @@ const BackEventHandler = {
 };
 
 /**
- * Maneja eventos de usuario relacionados con interacciones de APL.
+ * Este manejador se activa cuando el usuario interactúa con una interfaz APL específica (en este caso, con el token "categorias"). Extrae la categoría 
+ * seleccionada por el usuario del evento, la guarda en los atributos de sesión y responde con un mensaje confirmando la selección de la categoría. Luego, 
+ * carga los datos específicos de la categoría seleccionada desde un archivo JSON y, si el dispositivo es compatible con APL, muestra una galería correspondiente 
+ * a la categoría seleccionada.
  */
 const AplUserEventHandler = {
   canHandle(handlerInput) {
@@ -175,7 +185,10 @@ const AplUserEventHandler = {
 };
 
 /**
- * Maneja la intención de selección de categoría, activada cuando el usuario selecciona una categoría.
+ * Este manejador se activa cuando el usuario selecciona una categoría utilizando un intent específico (SelectCategoryIntent). Verifica si la solicitud es del 
+ * tipo "IntentRequest" y si el intent es "SelectCategoryIntent". Luego, obtiene la categoría del slot correspondiente, la guarda en los atributos de sesión y 
+ * responde con un mensaje confirmando la selección. Además, carga los datos específicos de la categoría desde un archivo JSON y muestra una galería APL si el 
+ * dispositivo es compatible.
  */
 const SelectCategoryIntentHandler = {
   canHandle(handlerInput) {
@@ -236,7 +249,9 @@ const SelectCategoryIntentHandler = {
 };
 
 /**
- * Maneja la intención InitRepeatIntent, que inicializa la sesión de repetición.
+ * Este manejador se activa cuando el usuario inicia una sesión de repetición utilizando el intent "InitRepeatIntent". Verifica si la solicitud es del tipo "IntentRequest" 
+ * y si el intent es "InitRepeatIntent". Luego, inicializa el índice de la imagen actual y guarda la primera imagen de la lista en los atributos de sesión. Responde con un 
+ * mensaje que describe la imagen y pide al usuario que diga lo que ve en la imagen. También establece un atributo de sesión para indicar que la repetición ha comenzado.
  */
 const InitRepeatIntentHandler = {
   canHandle(handlerInput) {
@@ -271,7 +286,10 @@ const InitRepeatIntentHandler = {
 };
 
 /**
- * Maneja la intención RepeatIntent, activada cuando el usuario repite una palabra.
+ * Este manejador se activa cuando el usuario repite una palabra utilizando el intent "RepeatIntent". Verifica si la solicitud es del tipo "IntentRequest" y 
+ * si el intent es "RepeatIntent". Obtiene la palabra del slot correspondiente y la compara con la palabra actual de la imagen utilizando una función Lambda de AWS. 
+ * Si la similitud es mayor a un umbral definido (50%), avanza a la siguiente imagen y pide al usuario que repita la nueva palabra. Si no, pide al usuario que repita 
+ * la palabra actual. Si el usuario ha completado todas las imágenes, felicita al usuario y finaliza la sesión.
  */
 const RepeatIntentHandler = {
   canHandle(handlerInput) {
@@ -352,7 +370,9 @@ const RepeatIntentHandler = {
 };
 
 /**
- * Maneja la intención HelpIntent, proporcionando ayuda al usuario.
+ * Este manejador se activa cuando el usuario pide ayuda utilizando el intent "AMAZON.HelpIntent". Verifica si la solicitud es del tipo "IntentRequest" y 
+ * si el intent es "AMAZON.HelpIntent". Responde con un mensaje que proporciona instrucciones sobre cómo usar la skill, por ejemplo, cómo seleccionar una 
+ * categoría y practicar palabras dentro de esa categoría.
  */
 const HelpIntentHandler = {
   canHandle(handlerInput) {
@@ -455,7 +475,9 @@ const IntentReflectorHandler = {
 };
 
 /**
- * Manejador global de errores para la skill.
+ * Este es un manejador global de errores que se activa cuando ocurre cualquier error en la skill. Siempre puede manejar errores, ya que su método 
+ * canHandle devuelve true. Responde con un mensaje genérico que indica que hubo un problema al ejecutar la acción solicitada y pide al usuario que 
+ * intente nuevamente. También registra el error en la consola para ayudar en la depuración.
  */
 const ErrorHandler = {
   canHandle() {
